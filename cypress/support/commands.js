@@ -14,3 +14,7 @@ Cypress.Commands.add(
     cy.contains("button", "Enviar").click();
   }
 );
+
+Cypress.Commands.add("visitFilled", () => {
+  cy.visit("src/index.html");
+});

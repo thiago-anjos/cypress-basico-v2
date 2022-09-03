@@ -3,7 +3,7 @@
 
 describe("Central de Atedimento ao Cliente TAT - 3", () => {
   beforeEach(() => {
-    cy.visit("http://127.0.0.1:5500/src/");
+    cy.visitFilled();
   });
 
   it("Marca um tipo de atendimento feeback", function () {

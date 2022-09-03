@@ -3,7 +3,7 @@
 
 describe("Central de Atedimento ao Cliente TAT", () => {
   beforeEach(() => {
-    cy.visit("http://127.0.0.1:5500/src/");
+    cy.visitFilled();
     //access fixture data
     cy.fixture("example").as("user");
   });
@@ -59,6 +59,14 @@ describe("Central de Atedimento ao Cliente TAT", () => {
   it("exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios", () => {
     cy.get('button[type="submit"]').click();
     cy.get(".error").should("be.visible");
+  });
+
+  it.only("exibe mensagem de erro ao submeter o formulário - cy clock", () => {
+    cy.clock();
+    cy.get('button[type="submit"]').click();
+    cy.get(".error").should("be.visible");
+    cy.tick(30000);
+    cy.get(".error").should("not.be.visible");
   });
 
   it("envia o formulário utilizando os comandos customizados", function () {
